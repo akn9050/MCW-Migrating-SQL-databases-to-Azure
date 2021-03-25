@@ -470,7 +470,10 @@
           "apiVersion": "2019-04-01",
           "location": "[variables('location')]",
           "properties": {
-              "publicIPAllocationMethod": "Dynamic"
+              "publicIPAllocationMethod": "Dynamic",
+		    "dnsSettings": {
+          "domainNameLabel": "[concat('jumpboxdns',parameters('DeploymentID'))]"
+        }
           },
           "sku": {
               "name": "Basic"
@@ -482,7 +485,10 @@
           "apiVersion": "2019-04-01",
           "location": "[variables('location')]",
           "properties": {
-              "publicIPAllocationMethod": "Dynamic"
+              "publicIPAllocationMethod": "Dynamic",
+	  "dnsSettings": {
+          "domainNameLabel": "[concat('sqlvmdns',parameters('DeploymentID'))]"
+        }
           },
           "sku": {
               "name": "Basic"
