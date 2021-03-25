@@ -68,6 +68,8 @@
       "jbNetworkSecurityGroupName": "[concat(variables('jbVirtualMachineName'), '-nsg')]",
       "jbPublicIpAddressName": "[concat(variables('jbVirtualMachineName'), '-ip')]",
       "sqlVirtualMachineName": "[concat('sql2008-',parameters('DeploymentID'))]",
+	      "jbVirtualMachineName": "[concat('JumpBox-',parameters('DeploymentID'))]",
+
       "sqlNetworkSecurityGroupName": "[concat(variables('sqlVirtualMachineName'), '-nsg')]",
       "sqlNetworkInterfaceName": "[concat(variables('sqlVirtualMachineName'), '-nic')]",
       "sqlPublicIpAddressName": "[concat(variables('sqlVirtualMachineName'), '-ip')]",
