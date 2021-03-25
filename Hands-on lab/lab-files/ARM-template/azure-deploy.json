@@ -66,7 +66,6 @@
          "jbNetworkInterfaceName": "[concat(variables('jbVirtualMachineName'), '-nic')]",
 
       "jbNetworkSecurityGroupName": "[concat(variables('jbVirtualMachineName'), '-nsg')]",
-      "jbNetworkInterfaceName": "[concat(variables('jbVirtualMachineName'), '-nic')]",
       "jbPublicIpAddressName": "[concat(variables('jbVirtualMachineName'), '-ip')]",
       "sqlVirtualMachineName": "[concat('sql2008-',parameters('DeploymentID'))]",
       "sqlNetworkSecurityGroupName": "[concat(variables('sqlVirtualMachineName'), '-nsg')]",
