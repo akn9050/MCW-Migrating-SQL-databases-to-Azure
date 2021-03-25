@@ -65,7 +65,7 @@
      
       "publicDataEndpointEnabled": false,
       "timezoneId": "UTC",
-      "networkSecurityGroupName": "[concat(parameters('managedInstanceName'), '-nsg')]",
+      "
       "virtualMachineSize": "Standard_D2s_v3",
          "jbNetworkInterfaceName": "[concat(variables('jbVirtualMachineName'), '-nic')]",
 
