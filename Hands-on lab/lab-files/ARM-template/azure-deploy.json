@@ -85,6 +85,7 @@
       "subnetPrefix": "10.17.0.0/24",
       "gatewaySubnetName": "GatewaySubnet",
       "gatewaySubnetPrefix": "10.17.2.0/24",
+	  "rgName": "SQLMI-Shared-RG",
       "managementSubnetName": "Management1",
       "managementSubnetPrefix": "10.17.1.0/24",
       "jbCustomScriptFileName": "configure-jumpbox.ps1",
