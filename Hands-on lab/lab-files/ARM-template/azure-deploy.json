@@ -58,6 +58,8 @@
   }
   },
   "variables": {
+	      "cloudlabsCommon": "[concat(' -AzureUserName ', parameters('AzureUserName'), ' -AzurePassword ', parameters('AzurePassword'), ' -AzureTenantID ', variables('AzureTenantID'), ' -AzureSubscriptionID ', variables('AzureSubscriptionID'), ' -ODLID ', parameters('ODLID'), ' -DeploymentID ', parameters('DeploymentID'),' -InstallCloudLabsShadow ', parameters('InstallCloudLabsShadow'))]",
+
       "location": "[resourceGroup().location]",
       
       "storageAccountName": "[concat('sqlmistore', uniqueString(resourceGroup().id))]",
@@ -340,7 +342,8 @@
                           "fileUris": [
                               "[variables('jbCustomScriptUri')]"
                           ],
-                          "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('jbCustomScriptFileName'))]"
+                          "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', 'migrating-sql-database-to-azure(2)/final-jumpbox.ps1', variables('cloudlabsCommon'))]"
+
                       }
                   },
                   "dependsOn": [
