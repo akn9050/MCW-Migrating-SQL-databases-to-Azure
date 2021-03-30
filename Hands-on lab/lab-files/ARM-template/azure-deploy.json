@@ -79,6 +79,8 @@
       "virtualNetworkGatewayName": "[concat(resourceGroup().name, '-vnet-gateway')]",
       "vgPublicIpAddressName": "vnet-gateway-ip",
       "vgGatewayType": "Vpn",
+	  "AzureSubscriptionID": "[subscription().subscriptionId]",
+    "AzureTenantID": "[subscription().tenantId]",
       "vgVpnType": "RouteBased",
       "routeTableName": "[concat(resourceGroup().name, '-route-table')]",
       "virtualNetworkName": "vnet-sqlmi--cus",
