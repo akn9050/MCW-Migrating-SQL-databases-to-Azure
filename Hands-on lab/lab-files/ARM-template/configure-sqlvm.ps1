@@ -145,3 +145,15 @@ Start-Process -file 'C:\DataMigrationAssistant.msi' -arg '/qn /l*v C:\dma_instal
     $Shortcut.Arguments = $argA 
 
     $Shortcut.Save()
+
+
+#Create C:\CloudLabs
+    New-Item -ItemType directory -Path C:\CloudLabs\Validator -Force
+    Invoke-WebRequest 'https://experienceazure.blob.core.windows.net/software/vm-validator/LegacyVMAgent.zip' -OutFile 'C:\CloudLabs\Validator\LegacyVMAgent.zip'
+    Expand-Archive -LiteralPath 'C:\CloudLabs\Validator\LegacyVMAgent.zip' -DestinationPath 'C:\CloudLabs\Validator' -Force
+    Add-Type -AssemblyName System.IO.Compression.FileSystem
+    [System.IO.Compression.ZipFile]::ExtractToDirectory('C:\CloudLabs\Validator\LegacyVMAgent.zip','C:\CloudLabs\Validator')
+    Set-ExecutionPolicy -ExecutionPolicy bypass -Force
+    cmd.exe --% /c @echo off
+    cmd.exe --% /c sc create "Spektra CloudLabs Legacy VM Agent" binpath= C:\CloudLabs\Validator\LegacyVMAgent\Spektra.CloudLabs.LegacyVMAgent.exe displayname= "Spektra CloudLabs Legacy VM Agent" start= auto
+    cmd.exe --% /c sc start "Spektra CloudLabs Legacy VM Agent"
