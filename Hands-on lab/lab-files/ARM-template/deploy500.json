@@ -94,9 +94,9 @@
         "managementSubnetPrefix": "10.17.1.0/24",
         "jbCustomScriptFileName": "final-jumpbox.ps1",
         "jbCustomScriptUri": "[concat('https://experienceazure.blob.core.windows.net/templates/migrating-sql-database-to-azure(2)/', variables('jbCustomScriptFileName'))]",
-        "sqlCustomScriptFileName": "configure-sqlvm.ps1",
-        "sqlCustomScriptUri": "[concat('https://raw.githubusercontent.com/sumitmalik51/MCW-Migrating-SQL-databases-to-Azure/master/Hands-on%20lab/lab-files/ARM-template/', variables('sqlCustomScriptFileName'))]",
-        "appServicePlanName": "[concat(resourceGroup().name, '-asp')]",
+        "sqlCustomScriptFileName": "final-sqlvm.ps1",
+    "sqlCustomScriptUri": "[concat('https://experienceazure.blob.core.windows.net/templates/migrating-sql-database-to-azure(2)/', variables('sqlCustomScriptFileName'))]",
+    "appServicePlanName": "[concat(resourceGroup().name, '-asp')]",
         "webAppName": "[concat('wwi-web-',parameters('DeploymentID'))]",
         "dmsName": "wwi-dms"
     },
@@ -223,7 +223,7 @@
                             "fileUris": [
                                 "[variables('sqlCustomScriptUri')]"
                             ],
-                            "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('sqlCustomScriptFileName')', variables('cloudlabsCommon'))]"
+                            "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File migrating-sql-database-to-azure(2)/', variables('sqlCustomScriptFileName'), ' ',variables('cloudlabsCommon'))]"
                         }
                     },
                     "dependsOn": [
