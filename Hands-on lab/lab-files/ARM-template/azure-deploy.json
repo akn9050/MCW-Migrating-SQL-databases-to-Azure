@@ -62,7 +62,7 @@
   
         "location": "[resourceGroup().location]",
         
-        "storageAccountName": "[concat('sqlmistore', uniqueString(resourceGroup().id))]",
+        "storageAccountName": "[concat('sqlmistore', parameters('DeploymentID'))]",
            "jbVirtualMachineName": "[concat('JumpBox-',parameters('DeploymentID'))]",
         "virtualMachineSize": "Standard_D2s_v3",
            "jbNetworkInterfaceName": "[concat(variables('jbVirtualMachineName'), '-nic')]",
